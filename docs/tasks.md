@@ -7,15 +7,30 @@
       1.4 animals - массив экземпляров класса Animal
         1.4.1 Создаем класс Animal 
         - weight
+        - height
         - age
         - name
         - sex
+        - portion
+        - diagnosis
+        - healthStatus (sick, healthy, borned)
+        - feed()
+        - walk()
+        - sleep()
         for (let i = 0; i < data.animals.length; i++) {
           this.animals.push(new Animal(data.animals[i]))
         }  как бы this.animals = [new Animal(data.animal)]  
     2. Создаем класс Employee
       2.1 Добавить св-во экземпляр класса Equipment
       2.2 Добавить метод checkYourEquipment, который проверяет все оборудование
+      2.3 Добавить метод changeSmenaStatus()
+      2.4 Создаем св-ва:
+        - name 
+        - age 
+        - profession 
+        - sex 
+        - oklad
+        - isWorkingNow
     3. Создаем класс FoodBlock
       3.1 Добавить св-во, кот. явл-ся экземпляром класса Employee 
         for (let i = 0; i < data.employees.length; i++) {
@@ -31,6 +46,17 @@
         for (let i = 0; i < data.installations.length; i++) {
           this.installations.push(new Installation(data.installations[i]))
         }  
+      3.4 Добавить метод prepareFeed()
+      3.5 Добавить метод feed()
+      3.6 Добавить метод buyFood()
+      3.7 Создать св-во store, кот. явл-ся массивом ОБ с ключами: 
+        - name
+        - amount
+        - type
+      3.8 Добавить св-во массив готовой еды preparedFood: 
+        - name
+        - amount
+        - type
     4. Создаем класс VeterinaryBlock
       4.1 Добавить св-во экземпляр класса Equipment
         4.1.1 Добавить метод checkEquipment, который проверяет все оборудование и вызывает checkYourEquipment для каждого сотрудника
@@ -42,20 +68,18 @@
         for (let i = 0; i < data.installations.length; i++) {
           this.installations.push(new Installation(data.installations[i]))
         }  
-      4.3 Добавить животных
-        4.3.1 Добавить св-во, которое является массивом типов животных typesOfAnimal
-        4.3.2 Добавить св-во, которое явл. ОБ массивов, где ключ - тип из typesOfAnimal, а знач - массив экземпляров класса Animals
-        for (let i = 0; i < data.animals.length; i++) {
-          this.animals.push(new Animals(data.animals[i]))
-        }  как бы this.animals = [new Animals(data.animal)]
-      4.4 Добавить метод animalBorn
-      4.5 Добавить метод проверки животных checkAnimal, который будет вызывать startQuarantineFor и animalBorn в зависимости от рандомайзера
-      4.6 Добавить метод изменения статуса карантина startQuarantineFor
-        4.6.1 Запускает таймер, который со временем отключает карантин для какой-то группы животных
-      4.7 Добавить св-во, кот. явл-ся экземпляром класса Employee 
+      4.3 Добавить метод animalBorn
+      4.4 Добавить метод проверки животных checkAnimal, который будет вызывать startQuarantineFor и animalBorn в зависимости от рандомайзера
+      4.5 Добавить метод изменения статуса карантина startQuarantineFor
+        4.5.1 Запускает таймер, который со временем отключает карантин для какой-то группы животных
+      4.6 Добавить св-во, кот. явл-ся экземпляром класса Employee 
         for (let i = 0; i < data.employees.length; i++) {
           this.employees.push(new Employee(data.employees[i]))
         }
+      4.7 Создать св-во store, кот. явл-ся массивом ОБ с ключами: 
+        - nameMedicine
+        - amount 
+        - type  
     5. Создаем класс ControlBlock
       5.1 Добавить св-во, кот. будет отдельным экземпляром класса ZooControlEvent
         5.1.1 Добавить метод addEvent
@@ -77,14 +101,41 @@
         for (let i = 0; i < data.employees.length; i++) {
           this.employees.push(new Employee(data.employees[i]))
         }
+      5.9 Добавить св-во eventsArchive
+      5.10 Добавить метод getFoolInfo()
+      5.11 Добавить метод listNextEvents()
+      5.12 Добавить метод listCurrentEvents()
     6. Создаем класс ZooControlEvent
-      6.1 Добавить св-во цены (приватное)
+      6.1 Добавить св-во price 
       6.2 Добавить ф-цию изменения и добавления цены, также изменение в зав-ти от возраста и акций
-      6.3 Добавить имя
-      6.4 Добавить тип события (экскурсия, сафари, благотворительный вечер, ночная кормежка)
+      6.3 Добавить name
+      6.4 Добавить тип события (экскурсия, сафари, благотворительный вечер, ночная кормежка) type
+      6.5 Добавить св-ва:
+        - date
+        - info
+        - isHasDiscount
+        - discounts - массив {name; percent}
+      6.6 Добавить метод runEvent()
+      6.7 Добавить метод stopEvent()
+      6.8 Добавить метод costOfEvent()
     7. Создаем класс Donut
+      7.1 Добавить св-ва:
+        - date
+        - sum
+        - donor
+        - info
     8. Создаем класс Equipment
-    9. Создаем класс Installation
+      8.1 Добавить св-ва:
+        - status
+        - material
+        - dateBought
+        - serviceLife
+        - vendor
+        - instruction
+        - hasGuarantee
+        - price
+    9. Создаем класс Installation, который наследуется от Equipment
+      9.1 Создать метод useEquipment()
     10. Создаем класс ZOO
       10.1 Добавить св-во controlBlock - экземпляр класса ControlBlock 
       10.2 Добавить св-во foodBlock - экземпляр класса FoodBlock 
@@ -93,7 +144,13 @@
       10.5 Добавить метод getDonut для создания доната, кот. принимает ОБ. описывающий донат, и запускает метод addDonut из инфоблока : this.controlBlock.addDonut(new Donut(donutData));
       10.6 Создать метод createNewEvent(cost, ), кот. принимает ОБ, описывающий событие, и запускает метод addEvent из инфоблока : this.controlBlock.addEvent(new ZooControlEvent(eventData))
       10.7 Создать метод checkEquipment (вызывает ф-ции checkInstallation и checkEquipment из каждого блока верхнего ур-ня 3, кот. проверяет все обмундирование каждого блока и каждого сотрудника - у каждого сотрудника д.б. метод checkYourEquipment) 
-    12. Создать класс Aquarium - отличается от родителя, кот. явл. классом ZOO,  какими-то нюансами, в т.ч. м.б. класс - сегмент:
+      10.8 Добавить животных
+        10.8.1 Добавить св-во, которое является массивом типов животных typesOfAnimal
+        10.8.2 Добавить св-во, которое явл. ОБ массивов, где ключ - тип из typesOfAnimal, а знач - массив экземпляров класса Animals
+        for (let i = 0; i < data.animals.length; i++) {
+          this.animals.push(new Animals(data.animals[i]))
+        }  как бы this.animals = [new Animals(data.animal)]
+    11. Создать класс Aquarium - отличается от родителя, кот. явл. классом ZOO,  какими-то нюансами, в т.ч. м. класс - сегмент:
       class Aquarium extends ZOO {
       constructor(data) {
         super(data);
@@ -108,10 +165,10 @@
       addNewSegment(segmentName, SegmentClass, segmentData) {
         this[segmentName] = new SegmentClass(segmentData)
       }
-    13. Проверка
-      13.1 Создать мини-зоопарк 
-      13.2 Создать зоопарк
-      13.3 Создать водный зоопарк Аквариум
+    12. Проверка
+      12.1 Создать мини-зоопарк 
+      12.2 Создать зоопарк
+      12.3 Создать водный зоопарк Аквариум
 
 ## Интерфейс - Перевести логику ZOO в новосозданую структуру с визуальным отображением по макету
     1. Создать отдельную папку, в которой будет следующая структура: 
@@ -158,6 +215,21 @@
     10. Оптимизация
 
 ## 20-08-2024
-    - [ ] Создаем класс Animals (1, 1.1, 1.2, 1.3, 1.4)
-    - [ ] Создаем класс Animal (1.4.1)
+    - [x] Перенести в github
+    - [x] Вынести README наверх
+    - [x] Внести изменения в structure.md
+    - [x] Модифицировать README
+    - [x] Модифицировать пример 2
+    - [x] Закончить tasks
+    - [x] Добавить информацию в versions
+
+## 21-08-2024
+    - [] Просмотреть структуру html 
+    - [] Стили Header (Интерфейс, 6.1)
+    - [] Стили Footer (Интерфейс, 6.2)
+    - [] Стили для блока с id example-block-1 (Интерфейс, 6.3)
+    - [] Создаем класс Animals (JS 1, 1.1, 1.2, 1.3, 1.4)
+    - [] Создаем класс Animal (JS 1.4.1)
+    - [] Стили класс Animals(Интерфейс, 6.4.1)
+    - [] Стили класс Animal(Интерфейс, 6.4.1.1)
 

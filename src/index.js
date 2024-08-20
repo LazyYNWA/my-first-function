@@ -46,8 +46,8 @@ class Employee extends StartEngine {
     this.checkIfKnownPropInData(data)
     this.saveKnownPropInClass(data)
   }
-  run() { console.log('start of the work') }
-  stop() { console.log('finish of the work') }
+  runSmena() { console.log('start of the work') }
+  stopSmena() { console.log('finish of the work') }
 
   checkIfKnownPropInData(data) {
     super.checkIfKnownPropInData(data)
@@ -97,27 +97,6 @@ class VeterinaryBlock extends StartEngine {
   }
 }
 
-class Quarantine extends VeterinaryBlock {
-  constructor(data) {
-    super(data);
-    super.checkIfKnownPropInData(data)
-    super.saveKnownPropInClass(data)
-    super.animalSick(data)
-    super.animalGreat(data)
-    super.animalTreated(data)
-  }
-}
-
-class ChildishBlock extends VeterinaryBlock {
-  constructor(data) {
-    super(data);
-    super.checkIfKnownPropInData(data)
-    super.saveKnownPropInClass(data)
-    super.animalGreat(data)
-    animalBorn() { console.log('animal is born') }
-  }
-}
-
 class InformationalBlock extends StartEngine {
   constructor(data) {
     super(['event', 'date', 'info', 'employee'])
@@ -148,17 +127,6 @@ class Events extends InformationalBlock {
     super.checkIfKnownPropInData(data)
     super.saveKnownPropInClass(data)
     super.saveUnknownPropInClass(data)
-    super.runEvent(data)
-    super.stopEvent(data)
-    super.costOfEvent(data)
-  }
-}
-
-class Excursions extends Events {
-  constructor(data) {
-    super(data);
-    super.checkIfKnownPropInData(data)
-    super.saveKnownPropInClass(data)
     super.runEvent(data)
     super.stopEvent(data)
     super.costOfEvent(data)
