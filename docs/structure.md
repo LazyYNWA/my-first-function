@@ -2,7 +2,6 @@
 ## Компоненты приложения
 ## Классовая структура Зоопарка
     1. StartEngine
-      - constructor(data: any)
       - #privateArrayKnownKeys: Array<string>
       - checkIfKnownPropInData(data: any): void
       - saveKnownPropInClass(data: any): void
@@ -31,7 +30,8 @@
       - sex: string (m, f)
       - oklad: number
       - isWorkingNow: boolean
-      - equipment: Array<Equipment>
+      - experience: number
+      - equipments: Array<Equipment>
       - checkYourEquipment(): void
       - changeSmenaStatus(): void
     5. FoodBlock  extends StartEngine  

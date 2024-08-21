@@ -3,19 +3,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> ZOO creation structure </title>
+  <link href="./style/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <header>
-    <div>
-      <a href=""></a>
-      <a href=""></a>
-    </div>
-    <div>
-      <img src="" alt=""> 
-    </div>
-    <div>
-      <a href=""></a>
-      <a href=""></a>
+    <div class="header-line">
+      <div class="button-menu"> <img src="./assets/image/button-menu.png"> </div>
+      <div class="nav-header">
+        <a href="#">История зоопарков</a>
+        <a href="#">О нас</a>
+      </div>
+      <div>
+        <img class="img-logo" src="./assets/image/Белый тигр.jpg" alt="Белый тигр">
+      </div>
+      <div class="nav-header">
+        <a href="#">События</a>
+        <a href="#">Контакты</a>
+      </div>
     </div>
   </header>
   
@@ -23,8 +27,8 @@
     <div>
       <div id="example-block-1">
         <!-- Example -->
-        <img src="./assets/image/second-example.jpg" alt="second-example">
-        <h1></h1>
+        <div class="example-block-1-img"><img src="./assets/image/second-example.jpg" alt="second-example"></div>
+        <h1> example-block-1 </h1>
         <ul>
           <li>
             <h2> myFirstProp </h2>
@@ -70,29 +74,91 @@
           </li>
         </ul>
       </div>
-      <div>StartEngine
-
-      </div>
+      <div></div>
       <div>
-        <div>Animal</div>
+        <div class="StartEngine">
+          <img src="./assets/image/5-minutes.jpg" alt="5-minutes">
+          <h1>StartEngine</h1>
+          <ul>
+            <li>
+              <h2> #privateArrayKnownKeys </h2>
+              <p> <span> Type: </span> Array&lt;string&gt; </p>
+              <p> <span> Purpose: </span> array of input data </p>
+            </li>
+            <li>
+              <h2> checkIfKnownPropInData </h2>
+              <p> <span> Type of parametres: </span>
+              <div>
+                <p> <span> data: </span> any </p>
+              </div>
+              </p>
+              <p> <span> Returned type: </span> void </p>
+              <p> <span> Purpose: </span> check known property </p>
+            </li>
+            <li>
+              <h2> saveKnownPropInClass </h2>
+              <p> <span> Type of parametres: </span>
+              <div>
+                <p> <span> data: </span> any </p>
+              </div>
+              </p>
+              <p> <span> Returned type: </span> void </p>
+              <p> <span> Purpose: </span> save known property </p>
+            </li>
+            <li>
+              <h2> saveUnknownPropInClass </h2>
+              <p> <span> Type of parametres: </span>
+              <div>
+                <p> <span> data: </span> any </p>
+              </div>
+              </p>
+              <p> <span> Returned type: </span> void </p>
+              <p> <span> Purpose: </span> save another property </p>
+            </li>
+          </ul>
+        </div>
+        <div>Animals
+          <img src="./assets/image/kengooroo.jpg" alt="kengooroo">
+          <h1>Animals</h1>
+          <ul>
+            <li>
+              <h2> amount </h2>
+              <p> <span> Type: </span> number </p>
+              <p> <span> Purpose: </span> show amount of animals </p>
+            </li>
+            <li>
+              <h2> typeName </h2>
+              <p> <span> Type: </span> string </p>
+              <p> <span> Purpose: </span> show type of animals </p>
+            </li>
+            <li>
+              <h2> isQuarantine </h2>
+              <p> <span> Type: </span> boolean </p>
+              <p> <span> Purpose: </span> show if animal in quarantine </p>
+            </li>
+            <li>
+              <h2> animals </h2>
+              <p> <span> Type: </span> Array&lt;Animal&gt; </p>
+              <p> <span> Purpose: </span> initializate animals </p>
+            </li>
+          </ul>
+         </div>
+        <!-- <div>Animal</div>
         <div>Employee</div>
         <div>FoodBlock</div>
-        <div>VeterinaryBlock
-          <div>Quarantine</div>
-          <div>ChildishBlock</div>
+        <div>VeterinaryBlock</div>
+        <div>ControlBlock
+          <div>ZooControlEvent</div>
         </div>
-        <div> ControlBlock
-          <div>Events
-            <div>Excursions</div>
-          </div>
-        </div>
-        <div>Donuts</div>
+        <div>Donut</div>
         <div>Equipment</div>
-      </div>
-      <div>ZOO</div>
+        <div>Installation</div>
+        <div>ZOO</div>
+        <div>Aquarium</div> -->
+       </div>
     </div>
     <div> 
-      <form action=" ">
+      <!-- <form action=" ">
         <div>
           <label for="name-of-zoo"> Name </label>
           <input type="text" id="name-of-zoo">
@@ -133,12 +199,12 @@
           <textarea id="comment" cols="70" rows="3"></textarea>
         </div>
         <button> Создать </button>
-      </form>
+      </form> -->
     </div>
     <div>
       <div id="example-block-2">
         <!-- Example -->
-        <div> 
+        <!-- <div> 
           <h1> </h1>
           <p></p>
         </div>
@@ -201,43 +267,43 @@
           <button>Покормить животных</button>
           <button>Добавить донат</button>
           <button>Оставить отзыв</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </main>
 
   <footer>
-    <div>
-      <div>
-        <h1></h1>
+    <div class="footer-menu">
+      <div class="nav-footer">
+        <h1 class="footer-h1"> Подробнее...</h1>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>Наш адрес, телефоны, e-mail, как добраться</li>
+          <li>Расписание работы</li>
+          <li>Акции</li>
+        </ul>
+      </div>
+      <div class="nav-footer">
+        <h1 class="footer-h1"> Чтобы не ползти вверх...</h1>
+        <ul>
+          <li>История зоопарков</li>
+          <li>О нас</li>
+          <li>События</li>
+          <li>Контакты</li>
         </ul>
       </div>
       <div>
-        <h1></h1>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-      <div>
-        <div>
-          <img src="" alt="">
-          <img src="" alt="">
-        </div>
-        <div>
-          <img src="" alt="">
-          <img src="" alt="">
+        <div class="social-wrapper">
+          <img class="social" src="./assets/image/facebook.png" alt="">
+          <img class="social" src="./assets/image/instagram.png" alt="">
+        <!-- </div>
+        <div class="social-wrapper"> -->
+          <img class="social" src="./assets/image/twitter.png" alt="">
+          <img class="social" src="./assets/image/whatsapp.png" alt="whatsapp">
         </div>
       </div>
     </div>
     <div>
-      <p></p>
+      <p class="cprt"> © 2024 LAZY Inc Все права защищены</p>
     </div>
   </footer>
 </body>

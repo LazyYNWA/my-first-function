@@ -2,4 +2,153 @@ body {
   width: 100vw;
   min-height: 100vh;
   margin: 0 auto;
+  background: url(../assets/image/sherst-zebry.png) no-repeat center center/cover;
+  background-attachment: fixed;
 }
+
+header, footer {
+  width: 100%;
+}
+
+header {
+  background-color: #607d8b;
+  height: 70px;
+}
+header .img-logo {
+   transform: scale(0.15);
+   border-radius: 33%;
+   transition: 2s;
+  /* width: 10%; */
+  /* height: 10%; */
+}
+header .img-logo:hover {
+  transform: scale(0.3);
+  transition-property: rgb(39, 54, 104);
+}
+header a:hover, footer il:hover {
+  color: whitesmoke;
+  transform: scale(1.1);
+}
+header .header-line {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+header .button-menu {
+  display: none;
+  width: 0px;
+  padding: 20px;
+}
+header .button-menu img {
+  width: 30px;
+}
+
+footer {
+  background-color: #607d8b;
+  opacity: 0.9;
+}
+footer .footer-menu {
+  display: flex;
+}
+
+.nav-header a {
+  padding: 20px;
+}
+.nav-footer {
+  display: grid;
+  flex-direction: column;
+}
+
+.nav-footer,
+.nav-header {
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  width: calc(50% - 70px);
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.social-wrapper {
+  position: absolute;
+  width: 40px;
+  height: 150px;
+  right: 20px;
+  padding: 20px 30px;
+}
+.social {
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: 7px;
+}
+.social:hover {
+  transform: scale(1.1); 
+}
+.cprt {
+  width: 100%;
+  text-align: center;
+  font-family: annabelle, cursive;
+  margin: 0px;
+}
+.cprt:hover {
+ color: midnightblue;
+}
+
+header a, footer li {
+  font-size: 20px;
+  padding: 7px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+footer .footer-h1 {
+  color: hsl(0, 0%, 79%);
+}
+
+ul {
+/* line-height: 50%; */
+}
+
+h1,
+a,
+p {
+  font-family: Montserrat, sans-serif;
+}
+
+p {
+  text-indent: 20px;
+}
+
+h1 {
+  margin-top: 0px;
+  text-align: center;
+  letter-spacing: 5px;
+}
+footer h1 {
+  letter-spacing: 1px;
+}
+footer li {
+  list-style-type: none;
+}
+
+/* #example-block-1, #example-block-2 */
+#example-block-1 {
+  width: 400px;
+  background-color: #d3d3d3d4;
+  opacity: 1;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px 0px rgb(0 0 0 / 50%);
+  margin: 10px;
+  display: inline-table;
+  padding: 10px;
+}
+
+.example-block-1-img img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+#example-block-1 h1, h2, p {
+} 

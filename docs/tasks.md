@@ -17,9 +17,11 @@
         - feed()
         - walk()
         - sleep()
-        for (let i = 0; i < data.animals.length; i++) {
-          this.animals.push(new Animal(data.animals[i]))
-        }  как бы this.animals = [new Animal(data.animal)]  
+  ```javascript
+  for (let i = 0; i < data.animals.length; i++) {
+    this.animals.push(new Animal(data.animals[i]))
+  }  как бы this.animals = [new Animal(data.animal)]
+  ```  
     2. Создаем класс Employee
       2.1 Добавить св-во экземпляр класса Equipment
       2.2 Добавить метод checkYourEquipment, который проверяет все оборудование
@@ -31,21 +33,33 @@
         - sex 
         - oklad
         - isWorkingNow
+        - experience
     3. Создаем класс FoodBlock
       3.1 Добавить св-во, кот. явл-ся экземпляром класса Employee 
-        for (let i = 0; i < data.employees.length; i++) {
-          this.employees.push(new Employee(data.employees[i]))
-        }
+  ```javascript
+  for (let i = 0; i < data.animals.length; i++) {
+    this.animals.push(new Animal(data.animals[i]))
+  }  как бы this.animals = [new Animal(data.animal)]
+  ```  
+  ```javascript
+  for (let i = 0; i < data.employees.length; i++) {
+    this.employees.push(new Employee(data.employees[i]))
+  }
+  ```      
       3.2 Добавить св-во экземпляр класса Equipment
         3.2.1 Добавить метод checkEquipment, который проверяет все оборудование и вызывает checkYourEquipment для каждого сотрудника
-        for (let i = 0; i < data.equipments.length; i++) {
-          this.equipments.push(new Equipment(data.equipments[i]))
-        }  
+  ```javascript
+  for (let i = 0; i < data.equipments.length; i++) {
+    this.equipments.push(new Equipment(data.equipments[i]))
+  }  
+  ```  
       3.3 Добавить св-во экземпляр класса Installation
         3.3.1 Добавить метод checkInstallation, который проверяет все оборудование
-        for (let i = 0; i < data.installations.length; i++) {
-          this.installations.push(new Installation(data.installations[i]))
-        }  
+  ```javascript
+  for (let i = 0; i < data.installations.length; i++) {
+    this.installations.push(new Installation(data.installations[i]))
+  }  
+   ```  
       3.4 Добавить метод prepareFeed()
       3.5 Добавить метод feed()
       3.6 Добавить метод buyFood()
@@ -60,22 +74,28 @@
     4. Создаем класс VeterinaryBlock
       4.1 Добавить св-во экземпляр класса Equipment
         4.1.1 Добавить метод checkEquipment, который проверяет все оборудование и вызывает checkYourEquipment для каждого сотрудника
-        for (let i = 0; i < data.equipments.length; i++) {
-          this.equipments.push(new Equipment(data.equipments[i]))
-        }  
+  ```javascript
+  for (let i = 0; i < data.equipments.length; i++) {
+    this.equipments.push(new Equipment(data.equipments[i]))
+  }  
+  ```  
       4.2 Добавить св-во экземпляр класса Installation
         4.2.1 Добавить метод checkInstallation, который проверяет все оборудование
-        for (let i = 0; i < data.installations.length; i++) {
-          this.installations.push(new Installation(data.installations[i]))
-        }  
+  ```javascript
+  for (let i = 0; i < data.installations.length; i++) {
+    this.installations.push(new Installation(data.installations[i]))
+  }  
+  ```  
       4.3 Добавить метод animalBorn
       4.4 Добавить метод проверки животных checkAnimal, который будет вызывать startQuarantineFor и animalBorn в зависимости от рандомайзера
       4.5 Добавить метод изменения статуса карантина startQuarantineFor
         4.5.1 Запускает таймер, который со временем отключает карантин для какой-то группы животных
       4.6 Добавить св-во, кот. явл-ся экземпляром класса Employee 
-        for (let i = 0; i < data.employees.length; i++) {
-          this.employees.push(new Employee(data.employees[i]))
-        }
+  ```javascript
+  for (let i = 0; i < data.employees.length; i++) {
+    this.employees.push(new Employee(data.employees[i]))
+  }
+  ```  
       4.7 Создать св-во store, кот. явл-ся массивом ОБ с ключами: 
         - nameMedicine
         - amount 
@@ -87,20 +107,26 @@
       5.3 Добавить метод addDonut, кот. принимает цену и имя донора и создает экземпляр класса Donut и записывает его в donutionRecords
       5.4 Добавить св-во экземпляр класса Equipment
         5.4.1 Добавить метод checkEquipment, который проверяет все оборудование и вызывает checkYourEquipment для каждого сотрудника
+```javascript
         for (let i = 0; i < data.equipments.length; i++) {
           this.equipments.push(new Equipment(data.equipments[i]))
         }  
+```  
       5.5 Добавить св-во экземпляр класса Installation
         5.5.1 Добавить метод checkInstallation, который проверяет все оборудование
-        for (let i = 0; i < data.installations.length; i++) {
-          this.installations.push(new Installation(data.installations[i]))
-        }  
+```javascript
+for (let i = 0; i < data.installations.length; i++) {
+  this.installations.push(new Installation(data.installations[i]))
+}  
+```  
       5.6 Добавить метод buy 
       5.7 Добавить метод repair
       5.8 Добавить св-во, кот. явл-ся экземпляром класса Employee 
-        for (let i = 0; i < data.employees.length; i++) {
+```javascript
+for (let i = 0; i < data.employees.length; i++) {
           this.employees.push(new Employee(data.employees[i]))
-        }
+}
+```  
       5.9 Добавить св-во eventsArchive
       5.10 Добавить метод getFoolInfo()
       5.11 Добавить метод listNextEvents()
@@ -147,11 +173,14 @@
       10.8 Добавить животных
         10.8.1 Добавить св-во, которое является массивом типов животных typesOfAnimal
         10.8.2 Добавить св-во, которое явл. ОБ массивов, где ключ - тип из typesOfAnimal, а знач - массив экземпляров класса Animals
-        for (let i = 0; i < data.animals.length; i++) {
+ ```javascript
+  for (let i = 0; i < data.animals.length; i++) {
           this.animals.push(new Animals(data.animals[i]))
-        }  как бы this.animals = [new Animals(data.animal)]
+  }  как бы this.animals = [new Animals(data.animal)]
+```  
     11. Создать класс Aquarium - отличается от родителя, кот. явл. классом ZOO,  какими-то нюансами, в т.ч. м. класс - сегмент:
-      class Aquarium extends ZOO {
+```javascript
+    class Aquarium extends ZOO {
       constructor(data) {
         super(data);
         class WaterControl {
@@ -165,6 +194,7 @@
       addNewSegment(segmentName, SegmentClass, segmentData) {
         this[segmentName] = new SegmentClass(segmentData)
       }
+```  
     12. Проверка
       12.1 Создать мини-зоопарк 
       12.2 Создать зоопарк
@@ -214,22 +244,4 @@
     9. Проверка  
     10. Оптимизация
 
-## 20-08-2024
-    - [x] Перенести в github
-    - [x] Вынести README наверх
-    - [x] Внести изменения в structure.md
-    - [x] Модифицировать README
-    - [x] Модифицировать пример 2
-    - [x] Закончить tasks
-    - [x] Добавить информацию в versions
-
-## 21-08-2024
-    - [] Просмотреть структуру html 
-    - [] Стили Header (Интерфейс, 6.1)
-    - [] Стили Footer (Интерфейс, 6.2)
-    - [] Стили для блока с id example-block-1 (Интерфейс, 6.3)
-    - [] Создаем класс Animals (JS 1, 1.1, 1.2, 1.3, 1.4)
-    - [] Создаем класс Animal (JS 1.4.1)
-    - [] Стили класс Animals(Интерфейс, 6.4.1)
-    - [] Стили класс Animal(Интерфейс, 6.4.1.1)
 
