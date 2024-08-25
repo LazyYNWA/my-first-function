@@ -80,15 +80,37 @@ class Employee extends StartEngine {
 
 class FoodBlock extends StartEngine {
   constructor(data) {
-    super(['name', 'animal', 'count', 'portion', 'employee'])
+    super(['name', 'amount', 'type']) /// store?
     this.checkIfKnownPropInData(data)
     this.saveKnownPropInClass(data)
-    this.animal = new Animal(data.animal)
-    this.employee = new Employee(data.employee)
+    for (let i = 0; i < data.employees.length; i++) {
+      this.employees.push(new Employee(data.employees[i]))
+    }
+    for (let i = 0; i < data.equipments.length; i++) {
+      this.equipments.push(new Equipment(data.equipments[i]))
+    }
+    for (let i = 0; i < data.installations.length; i++) {
+      this.installations.push(new Installation(data.installations[i]))
+    }
+    for (let i = 0; i < data.stores.length; i++) {
+      this.stores.push(data.stores[i])
+    }
+    for (let i = 0; i < data.preparedFood.length; i++) {
+      this.preparedFood.push(data.preparedFood[i])
+    }
   }
-  prepareFeed() { console.log('food is preparing') }
-  feed() { console.log('it feed animals') }
-  buyFood() { console.log('food is bought') }
+  checkEquipment() {
+    //////////// checkEquipment
+    for (let i = 0; i < this.equipments.length; i++) {
+      console.log( 'check equipment: ', this.equipments[i])
+    }
+    for (let i = 0; i < this.employees.length; i++) {
+      checkYourEquipment(this.employees[i]);
+    }
+  }
+  prepareFeed() { console.log('the food is preparing') }
+  feed(data) { console.log('it feed animals') }
+  buyFood() { console.log('the food is bought') }
 
   checkIfKnownPropInData(data) {
     super.checkIfKnownPropInData(data)

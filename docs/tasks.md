@@ -44,7 +44,8 @@
   ```javascript
   for (let i = 0; i < data.employees.length; i++) {
     this.employees.push(new Employee(data.employees[i]))
-  }
+  }  как бы this.employees = [new Employee(data.employees)]
+
   ```      
       3.2 Добавить св-во экземпляр класса Equipment
         3.2.1 Добавить метод checkEquipment, который проверяет все оборудование и вызывает checkYourEquipment для каждого сотрудника

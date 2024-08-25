@@ -163,5 +163,7 @@ ul {
   border-radius: 20px;
 }
 
-#example-block-1 h1, h2, p {
-} 
+.information-block-img video {
+  width: 100%;
+  border-radius: 20px;
+}

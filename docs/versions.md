@@ -1,5 +1,8 @@
 # Список версий
 
+### v0.0.4
+    1. Создание классов Employee, FoodBlock. 
+    3. Стиили для Employee, FoodBlock.
 ### v0.0.3
     1. Стили для footer, example-block-1
     2. Создание классов Animals, Animal. 
