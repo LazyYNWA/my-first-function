@@ -22,9 +22,25 @@ class StartEngine {
   }
 }
 
+class Animals extends StartEngine {
+  constructor(data) {
+    super(['amount', 'typeName', 'isQuarantine', 'animals'])
+    this.checkIfKnownPropInData(data)
+    this.saveKnownPropInClass(data)
+    for (let i = 0; i < data.animals.length; i++) {
+      this.animals.push(new Animal(data.animals[i]))
+    }
+  }
+  checkIfKnownPropInData(data) {
+    super.checkIfKnownPropInData(data)
+  }
+  saveKnownPropInClass(data) {
+    super.saveKnownPropInClass(data)
+  }
+}
 class Animal extends StartEngine {
   constructor(data) {
-    super(['name', 'rod', 'vid', 'age', 'sex', 'height', 'weight'])
+    super(['name', 'age', 'sex', 'healthStatus', 'height', 'weight', 'portion', 'diagnosis'])
     this.checkIfKnownPropInData(data)
     this.saveKnownPropInClass(data)
   }
@@ -42,12 +58,17 @@ class Animal extends StartEngine {
 
 class Employee extends StartEngine {
   constructor(data) {
-    super(['name', 'age', 'profession', 'sex', 'oklad'])
+    super(['name', 'age', 'profession', 'sex', 'oklad', 'isWorkingNow', 'experience'])
     this.checkIfKnownPropInData(data)
     this.saveKnownPropInClass(data)
+    for (let i = 0; i < data.equipments.length; i++) {
+      this.equipments.push(new Equipment(data.eEquipments[i]))
+    }
   }
-  runSmena() { console.log('start of the work') }
-  stopSmena() { console.log('finish of the work') }
+  checkYourEquipment() { console.log('check equipment of ',  this.name) } 
+  changeSmenaStatus() { console.log('current status smena of ',  this.name, ' ' + this.isWorkingNow ? ' working' : ' rest')}
+  // runSmena() { console.log('start of the work') }
+  // stopSmena() { console.log('finish of the work') }
 
   checkIfKnownPropInData(data) {
     super.checkIfKnownPropInData(data)

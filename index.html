@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> ZOO creation structure </title>
   <link href="./style/style.css" rel="stylesheet" type="text/css" />
+  <script src="./src/animation.js" defer></script>
 </head>
 <body>
   <header>
@@ -14,7 +15,10 @@
         <a href="#">О нас</a>
       </div>
       <div>
-        <img class="img-logo" src="./assets/image/Белый тигр.jpg" alt="Белый тигр">
+        <img class="img-logo" id="logo" src="./assets/image/Белый тигр.jpg" alt="Белый тигр">
+        <audio id="audio-for-logo">
+          <source src="./assets/schots_angry-tiger.mp3" type="audio/mpeg">
+        </audio>
       </div>
       <div class="nav-header">
         <a href="#">События</a>
@@ -25,9 +29,9 @@
   
   <main>
     <div>
-      <div id="example-block-1">
+      <div id="example-block-1" class="information-block">
         <!-- Example -->
-        <div class="example-block-1-img"><img src="./assets/image/second-example.jpg" alt="second-example"></div>
+        <div class="information-block-img"><img src="./assets/image/second-example.jpg" alt="second-example"></div>
         <h1> example-block-1 </h1>
         <ul>
           <li>
@@ -74,10 +78,9 @@
           </li>
         </ul>
       </div>
-      <div></div>
       <div>
-        <div class="StartEngine">
-          <img src="./assets/image/5-minutes.jpg" alt="5-minutes">
+        <div class="StartEngine information-block">
+          <div class="information-block-img"><img src="./assets/image/5-minutes.jpg" alt="5-minutes"></div>
           <h1>StartEngine</h1>
           <ul>
             <li>
@@ -117,45 +120,122 @@
             </li>
           </ul>
         </div>
-        <div>Animals
-          <img src="./assets/image/kengooroo.jpg" alt="kengooroo">
-          <h1>Animals</h1>
-          <ul>
-            <li>
-              <h2> amount </h2>
-              <p> <span> Type: </span> number </p>
-              <p> <span> Purpose: </span> show amount of animals </p>
-            </li>
-            <li>
-              <h2> typeName </h2>
-              <p> <span> Type: </span> string </p>
-              <p> <span> Purpose: </span> show type of animals </p>
-            </li>
-            <li>
-              <h2> isQuarantine </h2>
-              <p> <span> Type: </span> boolean </p>
-              <p> <span> Purpose: </span> show if animal in quarantine </p>
-            </li>
-            <li>
-              <h2> animals </h2>
-              <p> <span> Type: </span> Array&lt;Animal&gt; </p>
-              <p> <span> Purpose: </span> initializate animals </p>
-            </li>
-          </ul>
-         </div>
-        <!-- <div>Animal</div>
-        <div>Employee</div>
-        <div>FoodBlock</div>
-        <div>VeterinaryBlock</div>
-        <div>ControlBlock
-          <div>ZooControlEvent</div>
-        </div>
-        <div>Donut</div>
-        <div>Equipment</div>
-        <div>Installation</div>
-        <div>ZOO</div>
-        <div>Aquarium</div> -->
+        <div class="blocks">
+          <div class="Animals information-block">
+            <div class="information-block-img"><img src="./assets/image/kengooroo.jpg" alt="kengooroo"></div>
+            <h1>Animals</h1>
+            <ul>
+              <li>
+                <h2> amount </h2>
+                <p> <span> Type: </span> number </p>
+                <p> <span> Purpose: </span> show amount of animals </p>
+              </li>
+              <li>
+                <h2> typeName </h2>
+                <p> <span> Type: </span> string </p>
+                <p> <span> Purpose: </span> show type of animals </p>
+              </li>
+              <li>
+                <h2> isQuarantine </h2>
+                <p> <span> Type: </span> boolean </p>
+                <p> <span> Purpose: </span> show if animal in quarantine </p>
+              </li>
+              <li>
+                <h2> animals </h2>
+                <p> <span> Type: </span> Array&lt;Animal&gt; </p>
+                <p> <span> Purpose: </span> initializate animals </p>
+              </li>
+            </ul>
+          </div>
+          <div class="Animal information-block">
+            <div class="information-block-img"><img src="./assets/image/vydra.jpg" alt="kengooroo"></div>
+            <h1>Animal</h1>
+            <ul>
+              <li>
+                <h2> name </h2>
+                <p> <span> Type: </span> string </p>
+                <p> <span> Purpose: </span> name of animal </p>
+              </li>
+              <li>
+                <h2> sex </h2>
+                <p> <span> Type: </span> string </p>
+                <p> <span> Purpose: </span> show sex of animal </p>
+              </li>
+              <li>
+                <h2> age </h2>
+                <p> <span> Type: </span> number </p>
+                <p> <span> Purpose: </span> show age of animal </p>
+              </li>
+              <li>
+                <h2> weight </h2>
+                <p> <span> Type: </span> number </p>
+                <p> <span> Purpose: </span> show weight of animal </p>
+              </li>
+              <li>
+                <h2> height </h2>
+                <p> <span> Type: </span> number </p>
+                <p> <span> Purpose: </span> show height of animal </p>
+              </li>
+              <li>
+                <h2> portion </h2>
+                <p> <span> Type: </span> number </p>
+                <p> <span> Purpose: </span> show portion for animal </p>
+              </li>
+              <li>
+                <h2> healthStatus </h2>
+                <p> <span> Type: </span> number </p>
+                <p> <span> Purpose: </span> show health status of animal (sick, healthy, borned)</p>
+              </li>
+              <li>
+                <h2> diagnosis </h2>
+                <p> <span> Type: </span> number </p>
+                <p> <span> Purpose: </span> show diagnosis of animal </p>
+              </li>
+              <li>
+                <h2> feed </h2>
+                <p> <span> Type of parametres: </span>
+                <div>
+                  <p> <span> food: </span> object {name: string, count: number} </p>
+                </div>
+                </p>
+                <p> <span> Returned type: </span> void </p>
+                <p> <span> Purpose: </span> feeding the animal </p>
+              </li>
+              <li>
+                <h2> walk </h2>
+                <p> <span> Type of parametres: </span>
+                <div>
+                  <p> <span> none </span> </p>
+                </div>
+                </p>
+                <p> <span> Returned type: </span> void </p>
+                <p> <span> Purpose: </span> the animal walk </p>
+              </li>
+              <li>
+                <h2> sleep </h2>
+                <p> <span> Type of parametres: </span>
+                <div>
+                  <p> <span> none </span> </p>
+                </div>
+                </p>
+                <p> <span> Returned type: </span> void </p>
+                <p> <span> Purpose: </span> the animal sleep</p>
+              </li>
+            </ul>
+          </div>
+        <!-- <div>Employee</div> -->
+        <!-- <div>FoodBlock</div> -->
+        <!-- <div>VeterinaryBlock</div> -->
+        <!-- <div>ControlBlock -->
+          <!-- <div>ZooControlEvent</div> -->
+        <!-- </div> -->
+        <!-- <div>Donut</div> -->
+        <!-- <div>Equipment</div> -->
+        <!-- <div>Installation</div> -->
+        <!-- <div>ZOO</div> -->
+        <!-- <div>Aquarium</div> -->
        </div>
+      </div>
     </div>
     <div> 
       <!-- <form action=" ">
@@ -293,11 +373,14 @@
       </div>
       <div>
         <div class="social-wrapper">
-          <img class="social" src="./assets/image/facebook.png" alt="">
-          <img class="social" src="./assets/image/instagram.png" alt="">
+          <!-- <img class="social" src="./assets/image/facebook.png" alt="facebook">
+          <img class="social" src="./assets/image/instagram.png" alt="instagram"> -->
+          <img class="social" src="./assets/image/tg.png" alt="tg">
+          <img class="social" src="./assets/image/ok.png" alt="ok">
         <!-- </div>
         <div class="social-wrapper"> -->
-          <img class="social" src="./assets/image/twitter.png" alt="">
+          <!-- <img class="social" src="./assets/image/twitter.png" alt="twitter"> -->
+          <img class="social" src="./assets/image/vk.png" alt="vk">
           <img class="social" src="./assets/image/whatsapp.png" alt="whatsapp">
         </div>
       </div>
