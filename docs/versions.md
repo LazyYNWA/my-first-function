@@ -1,12 +1,12 @@
 # Список версий
 
 ### v0.0.4
-    1. Создание классов Employee, FoodBlock. 
-    3. Стиили для Employee, FoodBlock.
+    1. Создание классов CEmployee, CFoodBlock. 
+    3. Стили для CEmployee, CFoodBlock.
 ### v0.0.3
     1. Стили для footer, example-block-1
-    2. Создание классов Animals, Animal. 
-    3. Стиили для Animals, Animal.
+    2. Создание классов CAnimals, CAnimal. 
+    3. Стили для CAnimals, CAnimal.
 ### v0.0.2
     1. Стили header
     2. Изменение html для классовых компонентов

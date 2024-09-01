@@ -1,5 +1,5 @@
 
-class StartEngine {
+class CStartEngine {
   #privateArrayKnownKeys = []
   constructor(data) {
     this.#privateArrayKnownKeys = data
@@ -22,13 +22,13 @@ class StartEngine {
   }
 }
 
-class Animals extends StartEngine {
+class CAnimals extends CStartEngine {
   constructor(data) {
     super(['amount', 'typeName', 'isQuarantine', 'animals'])
     this.checkIfKnownPropInData(data)
     this.saveKnownPropInClass(data)
     for (let i = 0; i < data.animals.length; i++) {
-      this.animals.push(new Animal(data.animals[i]))
+      this.animals.push(new CAnimal(data.animals[i]))
     }
   }
   checkIfKnownPropInData(data) {
@@ -38,7 +38,7 @@ class Animals extends StartEngine {
     super.saveKnownPropInClass(data)
   }
 }
-class Animal extends StartEngine {
+class CAnimal extends CStartEngine {
   constructor(data) {
     super(['name', 'age', 'sex', 'healthStatus', 'height', 'weight', 'portion', 'diagnosis'])
     this.checkIfKnownPropInData(data)
@@ -56,13 +56,13 @@ class Animal extends StartEngine {
   }
 }
 
-class Employee extends StartEngine {
+class CEmployee extends CStartEngine {
   constructor(data) {
     super(['name', 'age', 'profession', 'sex', 'oklad', 'isWorkingNow', 'experience'])
     this.checkIfKnownPropInData(data)
     this.saveKnownPropInClass(data)
     for (let i = 0; i < data.equipments.length; i++) {
-      this.equipments.push(new Equipment(data.eEquipments[i]))
+      this.equipments.push(new CEquipment(data.equipments[i]))
     }
   }
   checkYourEquipment() { console.log('check equipment of ',  this.name) } 
@@ -78,19 +78,19 @@ class Employee extends StartEngine {
   }
 }
 
-class FoodBlock extends StartEngine {
+class CFoodBlock extends CStartEngine {
   constructor(data) {
     super(['name', 'amount', 'type']) /// store?
     this.checkIfKnownPropInData(data)
     this.saveKnownPropInClass(data)
     for (let i = 0; i < data.employees.length; i++) {
-      this.employees.push(new Employee(data.employees[i]))
+      this.employees.push(new CEmployee(data.employees[i]))
     }
     for (let i = 0; i < data.equipments.length; i++) {
       this.equipments.push(new Equipment(data.equipments[i]))
     }
     for (let i = 0; i < data.installations.length; i++) {
-      this.installations.push(new Installation(data.installations[i]))
+      this.installations.push(new CInstallation(data.installations[i]))
     }
     for (let i = 0; i < data.stores.length; i++) {
       this.stores.push(data.stores[i])
@@ -105,9 +105,15 @@ class FoodBlock extends StartEngine {
       console.log( 'check equipment: ', this.equipments[i])
     }
     for (let i = 0; i < this.employees.length; i++) {
-      checkYourEquipment(this.employees[i]);
+      this.employees[i].checkYourEquipment(this.employees[i]);
     }
   }
+  checkInstallation() {
+    //////////// checkInstallation
+    for (let i = 0; i < this.installations.length; i++) {
+      console.log( 'check installation: ', this.installations[i])
+    }
+  }  
   prepareFeed() { console.log('the food is preparing') }
   feed(data) { console.log('it feed animals') }
   buyFood() { console.log('the food is bought') }
@@ -120,17 +126,47 @@ class FoodBlock extends StartEngine {
   }
 }
 
-class VeterinaryBlock extends StartEngine {
+class CVeterinaryBlock extends CStartEngine {
   constructor(data) {
-    super(['name', 'diagnosis', 'animal', 'medicine', 'count', 'employee'])
+    super(['nameMedicine', 'amount', 'type'])
     this.checkIfKnownPropInData(data)
     this.saveKnownPropInClass(data)
-    this.animal = new Animal(data.animal)
-    this.employee = new Employee(data.employee)
+    for (let i = 0; i < data.employees.length; i++) {
+      this.employees.push(new CEmployee(data.employees[i]))
+    }
+    for (let i = 0; i < data.equipments.length; i++) {
+      this.equipments.push(new CEquipment(data.equipments[i]))
+    }
+    for (let i = 0; i < data.installations.length; i++) {
+      this.installations.push(new CInstallation(data.installations[i]))
+    }
+    for (let i = 0; i < data.store.length; i++) {
+      this.store.push(data.store[i])
+    }
   }
-  animalSick() { console.log('animal got sick') }
-  animalGreat() { console.log('animal great') }
-  animalTreated() { console.log('animal is being treated') }
+  checkEquipment() {
+    //////////// checkEquipment
+    for (let i = 0; i < this.equipments.length; i++) {
+      console.log( 'check equipment: ', this.equipments[i])
+    }
+    for (let i = 0; i < this.employees.length; i++) {
+      checkYourEquipment(this.employees[i]);
+    }
+  }
+  checkInstallation() {
+    for (let i = 0; i < this.installations.length; i++) {
+      console.log( 'check installation: ', this.installations[i])
+    }
+  }  
+  startQuarantineFor() { console.log('animal great'); setTimeout() } /////////////////
+  animalBorn() { console.log('animal is being borned') }
+  checkAnimal() {
+    if (Math.floor(Math.random() * 2) === 1) {
+    startQuarantineFor() 
+    } else {
+    animalBorn()
+    }
+  } 
 
   checkIfKnownPropInData(data) {
     super.checkIfKnownPropInData(data)
@@ -140,19 +176,48 @@ class VeterinaryBlock extends StartEngine {
   }
 }
 
-class InformationalBlock extends StartEngine {
+// class InformationalBlock extends CStartEngine {
+//   constructor(data) {
+//     super(['event', 'date', 'info', 'employee'])
+//     this.checkIfKnownPropInData(data)
+//     this.saveKnownPropInClass(data)
+//     this.employee = new CEmployee(data.employee)
+//   }
+//   listNextEvents() { console.log('List of next events') }
+//   listCurrentEvents() { console.log('List of current events') }
+//   runEvent() { console.log('start of the event') }
+//   stopEvent() { console.log('finish of the event') }
+//   costOfEvent() { console.log('cost, discount, childsCost of the event') }
+
+//   checkIfKnownPropInData(data) {
+//     super.checkIfKnownPropInData(data)
+//   }
+//   saveKnownPropInClass(data) {
+//     super.saveKnownPropInClass(data)
+//   }
+// }
+
+// class Events extends InformationalBlock {
+//   cost = 100;
+//   discount = 10;
+//   childsCost = 40;
+//   constructor(data) {
+//     super(data);
+//     super.checkIfKnownPropInData(data)
+//     super.saveKnownPropInClass(data)
+//     super.saveUnknownPropInClass(data)
+//     super.runEvent(data)
+//     super.stopEvent(data)
+//     super.costOfEvent(data)
+//   }
+// }
+
+class CDonuts extends CStartEngine {
   constructor(data) {
-    super(['event', 'date', 'info', 'employee'])
+    super(['date', 'sum', 'donor', 'info'])
     this.checkIfKnownPropInData(data)
     this.saveKnownPropInClass(data)
-    this.employee = new Employee(data.employee)
   }
-  listNextEvents() { console.log('List of next events') }
-  listCurrentEvents() { console.log('List of current events') }
-  runEvent() { console.log('start of the event') }
-  stopEvent() { console.log('finish of the event') }
-  costOfEvent() { console.log('cost, discount, childsCost of the event') }
-
   checkIfKnownPropInData(data) {
     super.checkIfKnownPropInData(data)
   }
@@ -161,40 +226,7 @@ class InformationalBlock extends StartEngine {
   }
 }
 
-class Events extends InformationalBlock {
-  cost = 100;
-  discount = 10;
-  childsCost = 40;
-  constructor(data) {
-    super(data);
-    super.checkIfKnownPropInData(data)
-    super.saveKnownPropInClass(data)
-    super.saveUnknownPropInClass(data)
-    super.runEvent(data)
-    super.stopEvent(data)
-    super.costOfEvent(data)
-  }
-}
-
-class Donuts extends StartEngine {
-  constructor(data) {
-    super(['date', 'sum', 'info', 'donor', 'employee'])
-    this.checkIfKnownPropInData(data)
-    this.saveKnownPropInClass(data)
-    this.employee = new Employee(data.employee)
-  }
-  recieveDonat() { console.log('Recieve donat from: ', data.donor, ' amount: ', data.sum) }
-  useDonat() { console.log('Use donat') }
-
-  checkIfKnownPropInData(data) {
-    super.checkIfKnownPropInData(data)
-  }
-  saveKnownPropInClass(data) {
-    super.saveKnownPropInClass(data)
-  }
-}
-
-class Equipment extends StartEngine {
+class CEquipment {
   isWireless = false;
   advantage = 'advantage';
   convenions = 'convenios';
@@ -206,7 +238,7 @@ class Equipment extends StartEngine {
     super(['name', 'property', 'purpose', 'count', 'cost', 'lifespan', 'employee'])
     this.checkIfKnownPropInData(data)
     this.saveKnownPropInClass(data)
-    this.employee = new Employee(data.employee)
+    this.employee = new CEmployee(data.employee)
   }
   buyEquipment() { console.log('Buy equipment', data.name, ' from ', this.vendor) }
   useEquipment() { console.log('Use equipment', data.name) }
@@ -220,40 +252,40 @@ class Equipment extends StartEngine {
   }
 }
 
-class ZOO extends StartEngine {
+class CZOO extends CStartEngine {
   constructor(data) {
     super(data);
-    this.animal = new Animal(data.animal)
-    this.employee = new Employee(data.employee)
-    this.foodBlock = new FoodBlock(data.name)
-    this.veterinaryBlock = new VeterinaryBlock(data.name)
+    this.animal = new CAnimal(data.animal)
+    this.employee = new CEmployee(data.employee)
+    this.foodBlock = new CFoodBlock(data.name)
+    this.veterinaryBlock = new CVeterinaryBlock(data.name)
     this.quarantine = new Quarantine(data.name)
     this.childishBlock = new ChildishBlock(data.name)
     this.informationalBlock = new InformationalBlock(data.event)
     this.events = new Events(data.event)
     this.excursions = new Excursions(data.event)
-    this.donuts = new Donuts(data.sum)
-    this.equipment = new Equipment(data.name) 
+    this.donuts = new CDonuts(data.sum)
+    this.equipment = new CEquipment(data.name) 
   }
 }
 
-class Aquarium extends ZOO {
+class CAquarium extends CZOO {
   constructor(data) {
     super(data);
-    this.animal = new Animal({'name': 'swordfish', 'rod': 'fish', 'vid': 'predator', 'age': 3, 'sex': 'male', 'height': 3.0, 'weight': 180})
-    this.employee = new Employee({'name': 'Ihtyandr', 'age': 33, 'profession': 'fisnman', 'sex': 'male', 'oklad': 250000})
-    this.foodBlock = new FoodBlock(data.name)
-    this.veterinaryBlock = new VeterinaryBlock(data.name)
+    this.animal = new CAnimal({'name': 'swordfish', 'rod': 'fish', 'vid': 'predator', 'age': 3, 'sex': 'male', 'height': 3.0, 'weight': 180})
+    this.employee = new CEmployee({'name': 'Ihtyandr', 'age': 33, 'profession': 'fisnman', 'sex': 'male', 'oklad': 250000})
+    this.foodBlock = new CFoodBlock(data.name)
+    this.veterinaryBlock = new CVeterinaryBlock(data.name)
     this.quarantine = new Quarantine(data.name)
     this.childishBlock = new ChildishBlock(data.name)
     this.informationalBlock = new InformationalBlock(data.event)
     this.events = new Events(data.event)
     this.excursions = new Excursions(data.event)
-    this.donuts = new Donuts(data.sum)
-    this.equipment = new Equipment(data.name) 
+    this.donuts = new CDonuts(data.sum)
+    this.equipment = new CEquipment(data.name) 
   }
 }
 
-// let Food = new FoodBlock({'name': 'meat', 'animal': new Animal({'name': 'lion', 'rod': 'cats', 'vid': 'predator', 'age': 3, 'sex': 'male', 'height': 1.0, 'weight': 220}), 'count': 4, 'portion': 1.5, 'employee': new Employee({'name': 'Frosya', 'age': 33, 'profession': 'cook', 'sex': 'femine', 'oklad': 44500})})
+// let Food = new CFoodBlock({'name': 'meat', 'animal': new CAnimal({'name': 'lion', 'rod': 'cats', 'vid': 'predator', 'age': 3, 'sex': 'male', 'height': 1.0, 'weight': 220}), 'count': 4, 'portion': 1.5, 'employee': new CEmployee({'name': 'Frosya', 'age': 33, 'profession': 'cook', 'sex': 'femine', 'oklad': 44500})})
 
-// let Food = new FoodBlock({'name': 'meat', 'animal': 'lion', 'count': 4, 'portion': 1.3, 'employee': {'name': 'Frosya', 'age': 33, 'profession': 'cook', 'sex': 'femine', 'oklad': 44500}})
+// let Food = new CFoodBlock({'name': 'meat', 'animal': 'lion', 'count': 4, 'portion': 1.3, 'employee': {'name': 'Frosya', 'age': 33, 'profession': 'cook', 'sex': 'femine', 'oklad': 44500}})

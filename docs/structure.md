@@ -1,17 +1,17 @@
 # Структура приложения
 ## Компоненты приложения
 ## Классовая структура Зоопарка
-    1. StartEngine
+  1. ___CStartEngine___
       - #privateArrayKnownKeys: Array<string>
       - checkIfKnownPropInData(data: any): void
       - saveKnownPropInClass(data: any): void
       - saveUnknownPropInClass(data: any): void
-    2. Animals  extends StartEngine
+  2.  ___CAnimals___  extends CStartEngine
       - amount: number
       - typeName: string
       - isQuarantine: boolean
-      - animals: Array<Animal>
-    3. Animal  extends StartEngine
+      - animals: Array<CAnimal>
+  3.  ___CAnimal___  extends CStartEngine
       - weight: number
       - height: number
       - age: number
@@ -20,10 +20,10 @@
       - portion: number
       - diagnosis: string
       - healthStatus: string (sick, healthy, borned)
-      - feed(food: {name: string, count: number}): void
+      - feed(food: IAnimalFeed): void
       - walk(): void
       - sleep(): void
-    4. Employee  extends StartEngine 
+  4. ___CEmployee___  extends CStartEngine 
       - name: string 
       - age: number 
       - profession: string 
@@ -34,32 +34,32 @@
       - equipments: Array<Equipment>
       - checkYourEquipment(): void
       - changeSmenaStatus(): void
-    5. FoodBlock  extends StartEngine  
-      - employees: Array<Employee>
-      - equipments: Array<Equipment>
-      - installations: Array<Installation>
-      - store: Array<{name: string, amount: number, type: string}>
-      - preparedFood: Array<{name: string, amount: number, type: string}>
+  5. ___CFoodBlock___ extends CStartEngine  
+      - employees: Array<CEmployee>
+      - equipments: Array<CEquipment>
+      - installations: Array<CInstallation>
+      - store: Array<IFoodBlockStore>
+      - preparedFood: Array<IFoodBlockStore>
       - prepareFeed(): void
-      - feed(animals: Array<Animal>, foodType: string): void
+      - feed(animals: Array<CAnimal>, foodType: string): void
       - buyFood(): void
-    6. VeterinaryBlock  extends StartEngine  
-      - employees: Array<Employee>
-      - equipments: Array<Equipment>
-      - installations: Array<Installation>
-      - store: Array<{nameMedicine: string, amount: number, type: string}>
+  6. ___CVeterinaryBlock___  extends CStartEngine  
+      - employees: Array<CEmployee>
+      - equipments: Array<CEquipment>
+      - installations: Array<CInstallation>
+      - store: Array<IVeterinaryStore>
       - checkEquipment(): void
       - checkInstallation(): void
       - animalBorn(): void
       - checkAnimal(): void
       - startQuarantineFor(): void
-    7. ControlBlock  extends StartEngine  
-      - events: Array<ZooControlEvent>
-      - eventsArchive: Array<ZooControlEvent>
-      - employees: Array<Employee>
-      - equipments: Array<Equipment>
-      - installations: Array<Installation>
-      - store: Array<{nameMedicine: string, amount: number, type: string}>
+  7. ___CControlBlock___  extends CStartEngine  
+      - events: Array<CZooControlEvent>
+      - eventsArchive: Array<CZooControlEvent>
+      - employees: Array<CEmployee>
+      - equipments: Array<CEquipment>
+      - installations: Array<CInstallation>
+      - store: Array<IControlBlockStore>
       - addEvent(): void
       - checkEquipment(): void
       - checkInstallation(): void
@@ -68,7 +68,7 @@
       - getFoolInfo(): void
       - listNextEvents(): void
       - listCurrentEvents(): void
-    8. ZooControlEvent  extends StartEngine 
+  8. ___CZooControlEvent___  extends CStartEngine 
       - price: number
       - name: string
       - type: string (экскурсия, сафари, благотворительный вечер, ночная кормежка)
@@ -79,12 +79,12 @@
       - runEvent(): void
       - stopEvent(): void
       - costOfEvent(): void
-    9. Donut  
+  9. ___CDonut___  
       - date: string
       - sum: number
       - donor: string
       - info: string
-    10. Equipment
+  10. ___CEquipment___
       - status: string
       - material: string
       - dateBought: string
@@ -93,20 +93,22 @@
       - instruction: string
       - hasGuarantee: boolean
       - price: number
-    11. Installation  extends Equipment
+  11. ___CInstallation___  extends CEquipment
       - useEquipment(): void
-    12. ZOO 
+  12. ___CZOO___ 
       - name: string
-      - controlBlock: ControlBlock
-      - foodBlock: FoodBlock
-      - veterinaryBlock: VeterinaryBlock
-      - animals: Array<Animals>
-      - #typesOfAnimal: Array<typesOfAnimal>
-      - getDonut(date: string, sum: number, donor: string, info: string): void
-      - createNewEvent(data: ZooControlEvent): void 
+      - controlBlock: CControlBlock
+      - foodBlock: CFoodBlock
+      - veterinaryBlock: CVeterinaryBlock
+      - animals: Array<CAnimals>
+      - #typesOfAnimal: Array<typesOfCAnimal>
+      - getDonut(IZOOgetDonut): void
+      - createNewEvent(data: CZooControlEvent): void 
       - checkEquipment(): void
-    13. Aquarium   extends ZOO
-   `constructor(data) {
+  13. ___CAquarium___   extends CZOO
+  
+   ```javascript
+   constructor(data) {
       super(data);
       class WaterControl {
       checkWaterTemperature() {}
@@ -117,4 +119,44 @@
    addNewSegment(segmentName, SegmentClass, segmentData) {
       this[segmentName] = new SegmentClass(segmentData)
    }
-   `
+   ```
+
+```typescript 
+  interface IVeterinaryStore { 
+    nameMedicine: string; 
+    amount: number; 
+    type: string;
+  }
+```
+
+```typescript 
+  interface IAnimalFeed { 
+    name: string; 
+    count: number; 
+  }
+```
+  
+```typescript 
+  interface IFoodBlockStore { 
+    name: string; 
+    amount: number; 
+    type: string;
+  }
+```
+  
+```typescript 
+  interface IControlBlockStore { 
+    nameMedicine: string; 
+    amount: number; 
+    type: string;
+  }
+```
+ 
+```typescript 
+  interface IZOOgetDonut { 
+    date: string; 
+    sum: number; 
+    donor: string;
+    info: string;
+  }
+```  

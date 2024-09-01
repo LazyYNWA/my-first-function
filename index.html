@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> ZOO creation structure </title>
+  <title> CZOO creation structure </title>
   <link href="./style/style.css" rel="stylesheet" type="text/css" />
   <script src="./src/animation.js" defer></script>
 </head>
@@ -79,10 +79,10 @@
         </ul>
       </div>
       <div>
-        <div class="StartEngine information-block">
+        <div class="start-engine information-block">
           <div class="information-block-img"><video src="./assets/image/owlman.mp4" controls autoplay
               type="video/mp4"></video> </div>
-          <h1>StartEngine</h1>
+          <h1>CStartEngine</h1>
           <ul>
             <li>
               <h2> #privateArrayKnownKeys </h2>
@@ -122,9 +122,9 @@
           </ul>
         </div>
         <div class="blocks">
-          <div class="Animals information-block">
+          <div class="animals information-block">
             <div class="information-block-img"><img src="./assets/image/kengooroo.jpg" alt="kengooroo"></div>
-            <h1>Animals</h1>
+            <h1>CAnimals</h1>
             <ul>
               <li>
                 <h2> amount </h2>
@@ -143,14 +143,14 @@
               </li>
               <li>
                 <h2> animals </h2>
-                <p> <span> Type: </span> Array&lt;Animal&gt; </p>
+                <p> <span> Type: </span> Array&lt;CAnimal&gt; </p>
                 <p> <span> Purpose: </span> initializate animals </p>
               </li>
             </ul>
           </div>
-          <div class="Animal information-block">
+          <div class="animal information-block">
             <div class="information-block-img"><img src="./assets/image/vydra.jpg" alt="kengooroo"></div>
-            <h1>Animal</h1>
+            <h1>CAnimal</h1>
             <ul>
               <li>
                 <h2> name </h2>
@@ -185,7 +185,7 @@
               <li>
                 <h2> healthStatus </h2>
                 <p> <span> Type: </span> number </p>
-                <p> <span> Purpose: </span> show health status of animal (sick, healthy, borned)</p>
+                <p> <span> Purpose: </span> show health status (sick, healthy, borned)</p>
               </li>
               <li>
                 <h2> diagnosis </h2>
@@ -224,9 +224,9 @@
               </li>
             </ul>
           </div>
-          <div class="Employee information-block">
+          <div class="employee information-block">
             <div class="information-block-img"><img src="./assets/image/5-minutes.jpg" alt="5-minutes"></div>
-            <h1>Employees</h1>
+            <h1>CEmployees</h1>
             <ul>
               <li>
                 <h2> equipments </h2>
@@ -270,14 +270,14 @@
               </li>
             </ul>
           </div>
-          <div class="FoodBlock information-block">
+          <div class="food-block information-block">
             <div class="information-block-img"><video src="./assets/image/small-panda.MP4" controls autoplay
                 type="video/mp4"></video> </div>
-            <h1>FoodBlock</h1>
+            <h1>CFoodBlock</h1>
             <ul>
               <li>
                 <h2> employees </h2>
-                <p> <span> Type: </span> Array&lt;Employee&gt; </p>
+                <p> <span> Type: </span> Array&lt;CEmployee&gt; </p>
                 <p> <span> Purpose: </span> show employees of the foodblock </p>
               </li>
               <li>
@@ -287,8 +287,34 @@
               </li>
               <li>
                 <h2> installations </h2>
-                <p> <span> Type: </span> Array&lt;Installation&gt; </p>
+                <p> <span> Type: </span> Array&lt;CInstallation&gt; </p>
                 <p> <span> Purpose: </span> show installations of the foodblock </p>
+              </li>
+              <li>
+                <h2> store </h2>
+                <p> <span> Type: </span> Array&lt;Object{name: string, count: number}&gt; </p>
+                <p> <span> Purpose: </span> show installations of the foodblock </p>
+              </li>
+
+              <li>
+                <h2> checkEquipment </h2>
+                <p> <span> Type of parametres: </span> 
+                <div>
+                  <p> <span> equipment: </span> Array&lt;Equipment&gt;  </p>
+                </div>
+                </p>
+                <p> <span> Returned type: </span> void </p>
+                <p> <span> Purpose: </span> check equipment </p>
+              </li>
+              <li>
+                <h2> checkInstallation </h2>
+                <p> <span> Type of parametres: </span> 
+                <div>
+                  <p> <span> installation: </span> Array&lt;CInstallation&gt;  </p>
+                </div>
+                </p>
+                <p> <span> Returned type: </span> void </p>
+                <p> <span> Purpose: </span> check installation </p>
               </li>
               <li>
                 <h2> prepareFeed </h2>
@@ -304,7 +330,7 @@
                 <h2> feed </h2>
                 <p> <span> Type of parametres: </span>
                 <div>
-                  <p> <span> animals: </span> Array&lt;Animal&gt; </p>
+                  <p> <span> animals: </span> Array&lt;CAnimal&gt; </p>
                   <p> <span> foodType: </span> string
                 </p>
                 <p> <span> Returned type: </span> void </p>
@@ -322,15 +348,156 @@
               </li>
             </ul>
           </div>
-        <!-- <div>VeterinaryBlock</div> -->
-        <!-- <div>ControlBlock -->
-          <!-- <div>ZooControlEvent</div> -->
-        <!-- </div> -->
-        <!-- <div>Donut</div> -->
-        <!-- <div>Equipment</div> -->
-        <!-- <div>Installation</div> -->
-        <!-- <div>ZOO</div> -->
-        <!-- <div>Aquarium</div> -->
+        <div class="veterinary-block information-block">
+          <div class="information-block-img"><img src="./assets/image/veterinar.jpg" alt="veterinar"></div>
+          <h1>CVeterinaryBlock</h1>
+          <ul>
+            <li>
+              <h2> employees </h2>
+              <p> <span> Type: </span> Array&lt;CEmployee&gt; </p>
+              <p> <span> Purpose: </span> show employees of the foodblock </p>
+            </li>
+            <li>
+              <h2> equipments </h2>
+              <p> <span> Type: </span> Array&lt;Equipment&gt; </p>
+              <p> <span> Purpose: </span> show equipments of the foodblock </p>
+            </li>
+            <li>
+              <h2> installations </h2>
+              <p> <span> Type: </span> Array&lt;CInstallation&gt; </p>
+              <p> <span> Purpose: </span> show installations of the foodblock </p>
+            </li>
+            <li>
+              <h2> store </h2>
+              <p> <span> Type: </span> Array&lt;IVeterinaryStore&gt; </p>
+              <p> <span> Purpose: </span>show store {nameMedicine, amount, type}</p>
+            </li>
+            <li>
+              <h2> checkEquipment </h2>
+              <p> <span> Type of parametres: </span> 
+              <div>
+                <p> <span> equipment: </span> Array&lt;Equipment&gt;  </p>
+              </div>
+              </p>
+              <p> <span> Returned type: </span> void </p>
+              <p> <span> Purpose: </span> check equipment </p>
+            </li>
+            <li>
+              <h2> checkCInstallation </h2>
+              <p> <span> Type of parametres: </span> 
+              <div>
+                <p> <span> installation: </span> Array&lt;CInstallation&gt;  </p>
+              </div>
+              </p>
+              <p> <span> Returned type: </span> void </p>
+              <p> <span> Purpose: </span> check installation </p>
+            </li>
+            <li>
+              <h2> animalBorn </h2>
+              <p> <span> Type of parametres: </span> 
+              <div>
+                <p> <span> animal: </span> Array&lt;CAnimal&gt;  </p>
+              </div>
+              </p>
+              <p> <span> Returned type: </span> void </p>
+              <p> <span> Purpose: </span> show borned animals </p>
+            </li>
+            <li>
+              <h2> startQuarantineFor </h2>
+              <p> <span> Type of parametres: </span> 
+              <div>
+                <p> <span> animal: </span> Array&lt;CAnimal&gt;  </p>
+              </div>
+              </p>
+              <p> <span> Returned type: </span> void </p>
+              <p> <span> Purpose: </span> change status of quarantine </p>
+            </li>
+            <li>
+              <h2> checkAnimal </h2>
+              <p> <span> Type of parametres: </span> 
+              <div>
+                <p> <span> animal: </span> Array&lt;CAnimal&gt;  </p>
+              </div>
+              </p>
+              <p> <span> Returned type: </span> void </p>
+              <p> <span> Purpose: </span>run random startQuarantineFor()</p>
+              <p>  or animalBorn() </p>
+            </li>
+        </ul>
+        </div>
+        <div class="control-block information-block">
+          <div class="information-block-img"><img src="./assets/image/lord-vetinari.jpg" alt="lord-vetinari"></div>
+          <h1>CControlBlock</h1>
+          <ul>
+            <li>
+              <h2>  </h2>
+              <p> <span> Type: </span>  </p>
+              <p> <span> Purpose: </span>  </p>
+            </li>
+          </ul>
+          <div class="zoo-control-event information-block">
+          <div class="information-block-img"><img src="./assets/image/events-blue.jpg" alt="events"></div>
+          <h1>CZooControlEvent</h1>
+          <ul>
+            <li>
+              <h2>  </h2>
+              <p> <span> Type: </span>  </p>
+              <p> <span> Purpose: </span>  </p>
+            </li>
+          </ul> 
+          </div>
+        </div>
+        <div class="donut information-block">
+          <div class="information-block-img"><img src="./assets/image/donuts.jpg" alt="donuts"></div>
+          <h1>CDonut</h1>
+          <ul>
+            <li>
+              <h2> date </h2>
+              <p> <span> Type: </span> string </p>
+              <p> <span> Purpose: </span> date of recieve donut </p>
+            </li>
+            <li>
+              <h2> sum </h2>
+              <p> <span> Type: </span> number </p>
+              <p> <span> Purpose: </span> amount of donut </p>
+            </li>
+            <li>
+              <h2> donor </h2>
+              <p> <span> Type: </span> string </p>
+              <p> <span> Purpose: </span> donut`s donor </p>
+            </li>
+            <li>
+              <h2> info </h2>
+              <p> <span> Type: </span> string </p>
+              <p> <span> Purpose: </span>any info about donut </p>
+            </li>
+        </ul>
+
+        </div>
+        <div class="equipment information-block">
+          <div class="information-block-img"><img src="./assets/image/equipments.jpg" alt="equipments"></div>
+          <h1>Equipment</h1>
+          <ul>
+            <li>
+              <h2>  </h2>
+              <p> <span> Type: </span>  </p>
+              <p> <span> Purpose: </span>  </p>
+            </li>
+          </ul>
+        </div>
+        <div class="installation information-block">CInstallation
+          <div class="information-block-img"><img src="./assets/image/installation.jpg" alt="installation"></div>
+          <h1>CInstallation</h1>
+          <ul>
+            <li>
+              <h2>  </h2>
+              <p> <span> Type: </span> string </p>
+              <p> <span> Purpose: </span> name of animal </p>
+            </li>
+          </ul>
+        </div>
+        <!-- <div>CZOO</div> -->
+        <!-- <div>CAquarium</div> -->
        </div>
       </div>
     </div>
@@ -348,7 +515,7 @@
           <label for="type-of-zoo"> Вид зоопарка </label>
           <select id="type-of-zoo">
             <option value="zoo-park"> Zoo-park</option>
-            <option value="aquarium"> Aquarium</option>
+            <option value="aquarium"> CAquarium</option>
             <option value="dino-park"> Dinopark</option>
           </select>
         </div>
