@@ -145,7 +145,6 @@ class CVeterinaryBlock extends CStartEngine {
     }
   }
   checkEquipment() {
-    //////////// checkEquipment
     for (let i = 0; i < this.equipments.length; i++) {
       console.log( 'check equipment: ', this.equipments[i])
     }
@@ -176,41 +175,54 @@ class CVeterinaryBlock extends CStartEngine {
   }
 }
 
-// class InformationalBlock extends CStartEngine {
-//   constructor(data) {
-//     super(['event', 'date', 'info', 'employee'])
-//     this.checkIfKnownPropInData(data)
-//     this.saveKnownPropInClass(data)
-//     this.employee = new CEmployee(data.employee)
-//   }
-//   listNextEvents() { console.log('List of next events') }
-//   listCurrentEvents() { console.log('List of current events') }
-//   runEvent() { console.log('start of the event') }
-//   stopEvent() { console.log('finish of the event') }
-//   costOfEvent() { console.log('cost, discount, childsCost of the event') }
-
-//   checkIfKnownPropInData(data) {
-//     super.checkIfKnownPropInData(data)
-//   }
-//   saveKnownPropInClass(data) {
-//     super.saveKnownPropInClass(data)
-//   }
-// }
-
-// class Events extends InformationalBlock {
-//   cost = 100;
-//   discount = 10;
-//   childsCost = 40;
-//   constructor(data) {
-//     super(data);
-//     super.checkIfKnownPropInData(data)
-//     super.saveKnownPropInClass(data)
-//     super.saveUnknownPropInClass(data)
-//     super.runEvent(data)
-//     super.stopEvent(data)
-//     super.costOfEvent(data)
-//   }
-// }
+class CControlBlock extends CStartEngine {
+  constructor(data) {
+    super(['name', 'amount', 'type'])
+    for (let i = 0; i < data.employees.length; i++) {
+      this.employees.push(new CEmployee(data.employees[i]))
+    }
+    for (let i = 0; i < data.equipments.length; i++) {
+      this.equipments.push(new CEquipment(data.equipments[i]))
+    }
+    for (let i = 0; i < data.installations.length; i++) {
+      this.installations.push(new CInstallation(data.installations[i]))
+    }
+    for (let i = 0; i < data.stores.length; i++) {
+      this.stores.push(data.stores[i])
+    }
+    this.zooControlEvent = new CZooControlEvent(data.zooControlEvent)
+    this.eventsArchive.push(data.zooControlEvent)
+  }
+  getFoolInfo() { console.log('Fool list by events') }
+  listNextEvents() { console.log('List of next events') }
+  listCurrentEvents() { console.log('List of current events') }
+  checkEquipment() {
+    for (let i = 0; i < this.equipments.length; i++) {
+      console.log( 'check equipment: ', this.equipments[i])
+    }
+    for (let i = 0; i < this.employees.length; i++) {
+      checkYourEquipment(this.employees[i]);
+    }
+  }
+  checkInstallation() {
+    for (let i = 0; i < this.installations.length; i++) {
+      console.log( 'check installation: ', this.installations[i])
+    }
+  }  
+  addEvent() { console.log('add a event ', this.zooControlEvent)}
+  addDonut(sum, donor) {
+    donut = new CDonuts(data.donut)
+    this.donutionRecords.push({'donut': donut, 'sum': sum, 'donor': donor})
+  }
+  buy() { console.log('') }
+  repair() { console.log('') }
+  // checkIfKnownPropInData(data) {
+  //   super.checkIfKnownPropInData(data)
+  // }
+  // saveKnownPropInClass(data) {
+  //   super.saveKnownPropInClass(data)
+  // }
+}
 
 class CDonuts extends CStartEngine {
   constructor(data) {
@@ -226,6 +238,35 @@ class CDonuts extends CStartEngine {
   }
 }
 
+class CZooControlEvent extends CStartEngine {
+  constructor(data) {
+    super(['price', 'name', 'type', 'date', 'info', 'isHasDiscount', 'discounts'])
+    this.checkIfKnownPropInData(data)
+    this.saveKnownPropInClass(data)
+  }
+  checkIfKnownPropInData(data) {
+    super.checkIfKnownPropInData(data)
+  }
+  saveKnownPropInClass(data) {
+    super.saveKnownPropInClass(data)
+  }
+  changePrice() { 
+    if (this.isHasDiscount) {
+      this.price = this.price * (1 - this.discounts.percent / 100);
+    }
+  }
+  runEvent() { console.log('the event ' , this.name, ' is started now') }
+  stopEvent() { console.log('the event ' , this.name, ' is finished now') }
+  costOfEvent() { console.log('cost by the event ' , this.name, ' is ', this.price) }
+
+}
+
+class CInstallation extends CEquipment {
+  useEquipment(data) { onsole.log('useEquipment') }
+}
+
+
+// not done
 class CEquipment {
   isWireless = false;
   advantage = 'advantage';
@@ -252,9 +293,13 @@ class CEquipment {
   }
 }
 
-class CZOO extends CStartEngine {
+// not done
+class CZOO {
   constructor(data) {
     super(data);
+    this.controlBlock = new CControlBlock(data.employee)
+
+
     this.animal = new CAnimal(data.animal)
     this.employee = new CEmployee(data.employee)
     this.foodBlock = new CFoodBlock(data.name)
@@ -269,6 +314,8 @@ class CZOO extends CStartEngine {
   }
 }
 
+
+// not done
 class CAquarium extends CZOO {
   constructor(data) {
     super(data);
